@@ -1,7 +1,4 @@
-package no.hvl.dat102;
-import no.hvl.dat102.Filmarkiv.*;
-import no.hvl.dat102.Film.*;
-
+package no.hvl.dat102.oving1;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileNotFoundException.*;
@@ -10,7 +7,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import no.hvl.dat102.ADT.FilmarkivADT;
+import no.hvl.dat102.ADT.oving1.FilmarkivADT;
+import no.hvl.dat102.oving1.Film.*;
+import no.hvl.dat102.oving1.Filmarkiv.*;
 
 public class Fil {
 

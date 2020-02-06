@@ -1,7 +1,7 @@
-package no.hvl.dat102;
+package no.hvl.dat102.oving1;
 
-import no.hvl.dat102.*;
-import no.hvl.dat102.ADT.FilmarkivADT;
+import no.hvl.dat102.ADT.oving1.FilmarkivADT;
+import no.hvl.dat102.oving1.*;
 
 public class FilmarkivKlient {
 	

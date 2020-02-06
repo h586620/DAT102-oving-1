@@ -1,10 +1,10 @@
-package no.hvl.dat102;
-
-import no.hvl.dat102.Filmarkiv;
+package no.hvl.dat102.oving1;
 
 import java.util.Scanner;
-import no.hvl.dat102.Filmarkiv.*;
-import no.hvl.dat102.ADT.FilmarkivADT;
+
+import no.hvl.dat102.ADT.oving1.FilmarkivADT;
+import no.hvl.dat102.oving1.Filmarkiv;
+import no.hvl.dat102.oving1.Filmarkiv.*;
 
 public class Meny {
 
