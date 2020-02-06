@@ -20,95 +20,61 @@ public class Meny {
 	public void start() {
 
 		Scanner scanner = new Scanner(System.in);
+		Filmarkiv arkiv = null;
 		System.out.println(
 				"Hvilket filmarkiv vil du jobbe med?\n Tast 1: opprett nytt filmarkiv\n Tast 2: jobb med eksisterende");
 
 		int valg = scanner.nextInt();
-		boolean b = false;
+		if (valg == 1) {
+			arkiv = new Filmarkiv(20);
+		} else {
+			System.out.println("hvilket film arkiv vil du jobbe med?");
+			String navn = scanner.next();
+			arkiv = Fil.lesFraFil(navn);
+		}
 
-		Filmarkiv nyttarkiv = null;
+		System.out.println(
+				"Velg en av følgende metoder\n Tast 1: Legge til film\n Tast 2: Slette film\n Tast 3: Få antall filmer i arkivet\n Tast 4: Søk tittel\n Tast 5: Søk filmskaper\n Tast 6: lukk og lagre arkiv");
+
+		int valg1 = scanner.nextInt();
+
 		switch (valg) {
 		case 1:
-			System.out.println("Opprett nytt filmarkiv.");
-
-			System.out.println("Hvor mange filmer Ã¸nsker du Ã¥ lagre?");
-			int antalliarkiv = scanner.nextInt();
-
-			nyttarkiv = new Filmarkiv(antalliarkiv);
-			b = true;
-
+			Film navn = new Film();
+			arkiv.leggTil(navn);
 			break;
 		case 2:
-			System.out.println("Jobb med eksisterende.");
+			System.out.println("Slette film");
+			String tittel = scanner.next();
+			arkiv.slettFilm(tittel);
 
-			System.out.println("Skriv inn filnavn du Ã¸nsker Ã¥ lese fra: ");
-			String arkiv = scanner.nextLine();
-			filma = Fil.lesFraFil(arkiv);
+			break;
+		case 3:
+			System.out.println("Få antall filmer i arkivet");
+			arkiv.antall();
 
+			break;
+		case 4:
+			System.out.println("Hvilke tittle vil du søke opp?");
+			String tittelen = scanner.next();
+			arkiv.sokTittel(tittelen);
+
+			break;
+		case 5:
+			System.out.println("Hvilke filmskaper vil du søke på?");
+			String skaper = scanner.next();
+			arkiv.sokFilmskaper(skaper);
+			break;
+
+		case 6:
+			System.out.println("Skriv inn filnavn");
+			String filnavn = scanner.next();
+			Fil.skrivTilFil(arkiv, filnavn);
 			break;
 		default:
 			System.out.println("Error");
+
 			break;
-		}
-
-		while (b) {
-			
-
-			System.out.println(
-					"Velg en av fÃ¸lgende metoder.\n Tast 1: Legge til film\n Tast 2: Slette film\n Tast 3: FÃ¥ antall filmer i arkivet");
-
-			int valg1 = scanner.nextInt();
-
-			switch (valg1) {
-			case 1:
-				Film navn = new Film();
-
-				nyttarkiv.leggTil(navn);
-
-				break;
-			case 2:
-				System.out.println("Slette film");
-				String tittel = scanner.next();
-				nyttarkiv.slettFilm(tittel);
-
-				break;
-			case 3:
-				System.out.println("FÃ¥ antall filmer i arkivet");
-				nyttarkiv.antall();
-
-				break;
-			default:
-				System.out.println("Error");
-
-			}
-			while (!b) {
-				System.out.println(
-						"Velg en av fÃ¸lgende metoder.\n Tast 1: Legge til film\n Tast 2: Slette film\n Tast 3: FÃ¥ antall filmer i arkivet");
-
-				int valg2 = scanner.nextInt();
-
-				switch (valg2) {
-				case 1:
-					Film navn = new Film();
-
-					filma.leggTil(navn);
-
-					break;
-				case 2:
-					System.out.println("Slette film");
-					String tittel = scanner.next();
-					filma.slettFilm(tittel);
-
-					break;
-				case 3:
-					System.out.println("FÃ¥ antall filmer i arkivet");
-					filma.antall();
-
-					break;
-				default:
-					System.out.println("Error");
-				}
-			}
 
 		}
 	}
