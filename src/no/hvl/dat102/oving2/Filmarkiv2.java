@@ -3,6 +3,7 @@ package no.hvl.dat102.oving2;
 import no.hvl.dat102.ADT.oving2.FilmarkivADT2;
 import no.hvl.dat102.oving2.Film;
 import no.hvl.dat102.oving2.Sjanger2;
+import no.hvl.dat102.oving2.LinearNode;
 
 public class Filmarkiv2 implements FilmarkivADT2 {
 
@@ -51,17 +52,30 @@ public class Filmarkiv2 implements FilmarkivADT2 {
 
 	public Film[] sokTittel(String delstreng){
 		    
-		LinearNode<Film> søk = start;
-//		if (søk.contains(delstreng)) {
-//			
-//		}
-		throw new UnsupportedOperationException();
+		LinearNode<Film> temp = start;
+		
+		Film[] hjelpetabell = new Film[antall];
+		
+		for(int i = 0; i < antall&& temp!= null; i++) {
+			if (temp.getElement().getTittel().contains(delstreng)) {
+				hjelpetabell[i] = temp.getElement(); 
+			}
+		}
 		    
+		
+		return hjelpetabell; 
 		  }
 		
 
 	public Film[] sokFilmskaper(String delstreng) {
-		throw new UnsupportedOperationException();
+			LinearNode<Film> temp=start;
+			Film[] hjelpetabell= new Film[antall];
+			for(int i=0;i<antall&&temp!=null;i++) {
+				if(temp.getElement().getFilmskaper().contains(delstreng)) {
+					hjelpetabell[i]= temp.getElement();
+				}
+			}
+			return hjelpetabell;
 	}
 
 	public int antall() {
@@ -69,11 +83,25 @@ public class Filmarkiv2 implements FilmarkivADT2 {
 	}
 
 	public Film[] hentFilmTabell() {
-		throw new UnsupportedOperationException();
+	LinearNode<Film> temp=start;
+	Film[] hjelpetabell= new Film[antall];
+	for(int i=0;i<antall;i++) {
+		hjelpetabell[i]=temp.getElement();
+		temp=temp.getNeste();
+		
+	}
+	return hjelpetabell;
 	}
 
 	public int antallSjanger(Sjanger2 sjanger) {
-		throw new UnsupportedOperationException();
+	LinearNode<Film> temp=start;
+	int antallSjanger=0;
+	for(int i=0;i<antall;i++) {
+		if(temp.getElement().getSjanger()==sjanger) {
+			antallSjanger++;
+		}
+	}
+	return antallSjanger;
 	}
 
 	public boolean inneholder(Film element) {
