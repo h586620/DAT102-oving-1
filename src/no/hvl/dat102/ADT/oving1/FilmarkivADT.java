@@ -21,4 +21,5 @@ public interface FilmarkivADT {
 	int antallSjanger(Sjanger sjanger);
 	
 	
+	
 }
